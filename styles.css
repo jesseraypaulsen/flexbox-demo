@@ -1,0 +1,22 @@
+
+.container {
+  display: flex;
+  border: 8px solid black;
+  height: 80vh;
+}
+
+.box {
+  font-size: 50px;
+  font-family: lato;
+  box-sizing: border-box;
+}
+
+.box-1 { background-color: #e51400; }
+.box-2 { background-color: #fa6800; }
+.box-3 { background-color: #f0a30a; }
+.box-4 { background-color: #e3c800; }
+.box-5 { background-color: #a4c400; }
+.box-6 { background-color: #60a917; }
+.box-7 { background-color: #00aba9; }
+.box-8 { background-color: #1ba1e2; }
+.box-9 { background-color: #aa00ff; }
