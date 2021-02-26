@@ -3,12 +3,16 @@
   display: flex;
   border: 8px solid black;
   height: 80vh;
+  flex-direction: column-reverse; /* default: row */
+  flex-wrap: wrap-reverse; /* default: nowrap */
+  justify-content: center; /* default: flex-start */
+  align-items: center; /* default: stretch */
 }
 
 .box {
   font-size: 50px;
-  font-family: lato;
   box-sizing: border-box;
+  width: 300px;
 }
 
 .box-1 { background-color: #e51400; }
