@@ -1,9 +1,9 @@
 
 .container {
   display: flex;
-  border: 8px solid black;
-  height: 80vh;
-  flex-direction: row; /* default: row */
+  border: 8px solid goldenrod;
+  min-height: 80vh;
+  flex-direction: column; /* default: row */
   flex-wrap: nowrap; /* default: nowrap */
   justify-content: flex-start; /* default: flex-start */
   align-items: stretch; /* default: stretch */
