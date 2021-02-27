@@ -3,13 +3,13 @@
   display: flex;
   border: 8px solid goldenrod;
   min-height: 80vh;
-  flex-direction: column; /* default: row */
+  flex-direction: row; /* default: row */
   flex-wrap: nowrap; /* default: nowrap */
   justify-content: flex-start; /* default: flex-start */
   align-items: stretch; /* default: stretch */
   align-content: stretch; /* default: stretch, BUT the default flex-wrap mutes this property */
 }
-
+/*TODO: write js function that changes flex-direction from row to column and back */
 .box {
   font-size: 50px;
   box-sizing: border-box;
