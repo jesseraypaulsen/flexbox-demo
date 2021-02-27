@@ -3,10 +3,11 @@
   display: flex;
   border: 8px solid black;
   height: 80vh;
-  flex-direction: column-reverse; /* default: row */
-  flex-wrap: wrap-reverse; /* default: nowrap */
-  justify-content: center; /* default: flex-start */
-  align-items: center; /* default: stretch */
+  flex-direction: row; /* default: row */
+  flex-wrap: nowrap; /* default: nowrap */
+  justify-content: flex-start; /* default: flex-start */
+  align-items: stretch; /* default: stretch */
+  align-content: stretch; /* default: stretch, BUT the default flex-wrap mutes this property */
 }
 
 .box {
