@@ -26,38 +26,43 @@
       <div id="cont-props">
 
         <h2>Container Properties</h2>
+
         <label for="flex-direction">flex-direction</label>
-        <select name="flex-direction" id="flex-direction">
+        <select name="flex-direction" id="flex-direction" data-props="container">
           <option value="row">row <small>(default)</small></option>
           <option value="row-reverse">row-reverse</option>
           <option value="column">column</option>
           <option value="column-reverse">column-reverse</option>
         </select>
+
         <label for="flex-wrap">flex-wrap</label>
-        <select name="flex-wrap" id="flex-wrap">
+        <select name="flex-wrap" id="flex-wrap" data-props="container">
           <option value="nowrap">nowrap <small>(default)</small></option>
           <option value="wrap">wrap</option>
           <option value="wrap-reverse">wrap-reverse</option>
         </select>
+
         <label for="justify-content">justify-content</label>
-        <select name="justify-content" id="justify-content">
+        <select name="justify-content" id="justify-content" data-props="container">
           <option value="flex-start">flex-start <small>(default)</small></option>
           <option value="flex-end">flex-end</option>
           <option value="center">center</option>
           <option value="space-between">space-between</option>
           <option value="space-around">space-around</option>
-          <option value="space-evely">space-evenly</option>
+          <option value="space-evenly">space-evenly</option>
         </select>
+
         <label for="align-items">align-items</label>
-        <select name="align-items" id="align-items">
+        <select name="align-items" id="align-items" data-props="container">
           <option value="flex-start">flex-start</option>
           <option value="flex-end">flex-end</option>
           <option value="center">center</option>
           <option value="stretch">stretch <small>(default)</small></option>
           <option value="baseline">baseline</option>
         </select>
+
         <label for="align-content">align-content</label>
-        <select name="align-content" id="align-content">
+        <select name="align-content" id="align-content" data-props="container">
           <option value="flex-start">flex-start</option>
           <option value="flex-end">flex-end</option>
           <option value="center">center</option>
@@ -66,6 +71,7 @@
           <option value="space-evenly">space-evenly</option>
           <option value="stretch">stretch <small>(default)</small></option>
         </select>
+
       </div>
 
       <div id="item-props">
@@ -73,10 +79,10 @@
         <h2>Item Properties</h2>
 
         <label for="order">order</label>
-        <input name="order" id="order" type="text" placeholder="default is 0">
+        <input name="order" id="order" type="text" placeholder="default is 0" data-props="item">
 
-        <label for="self-align">self-align</label>
-        <select name="self-align" id="self-align">
+        <label for="align-self">align-self</label>
+        <select name="align-self" id="align-self" data-props="item">
           <option value="auto">auto (default)</option>
           <option value="flex-start">flex-start</option>
           <option value="flex-end">flex-end</option>
@@ -85,14 +91,14 @@
           <option value="stretch">stretch</option>
         </select>
         
-        <label for="flex-grow">flex-grow</label> <!-- 1 when omitted -->
-        <input type="range" name="flex-grow" id="flex-grow" min="0" max="10" value="0">
+        <label for="flex-grow">flex-grow</label> 
+        <input type="range" name="flex-grow" id="flex-grow" data-props="item" min="0" max="10" value="0">
         
-        <label for="flex-shrink">flex-shrink</label> <!-- 1 when omitted -->
-        <input type="range" name="flex-shrink" id="flex-shrink" min="0" max="10" value="1">
+        <label for="flex-shrink">flex-shrink</label>
+        <input type="range" name="flex-shrink" id="flex-shrink" data-props="item" min="0" max="10" value="1">
         
-        <label for="flex-basis">flex-basis</label> <!-- 0 when omitted -->
-        <input type="text" name="flex-basis" id="flex-basis" placeholder="auto (default)">
+        <label for="flex-basis">flex-basis</label>
+        <input type="text" name="flex-basis" id="flex-basis" data-props="item" placeholder="auto (default)">
 
       </div>
 

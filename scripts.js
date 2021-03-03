@@ -14,12 +14,38 @@ const parseAttrIntoProps = (s) => {
   }
   return s;
 }
-const ddlists = document.querySelectorAll('select');
 
-ddlists.forEach(list => {
-  let name = list.name;
+let contControls = document.querySelectorAll('[data-props="container"]');
+let itemControls = document.querySelectorAll('[data-props="item"]');
+
+let currItems = [];
+
+// container controls must be handled differently than item controls
+contControls.forEach(ctrl => {
+  let name = ctrl.name;
   let newName = parseAttrIntoProps(name);
-  list.addEventListener('change', e => {
+  ctrl.addEventListener('change', e => {
     layout.style[newName] = e.target.value;
   });
+});
+
+itemControls.forEach(ctrl => {
+  let name = ctrl.name;
+  let newName = parseAttrIntoProps(name);
+  ctrl.addEventListener('change', e => {
+    currItems.forEach(item => {
+      item = '.' + item;
+      console.log(document.querySelector(item))
+      console.log(e.target.value);
+      document.querySelector(item).style[newName] = e.target.value;
+    });
+  });
+})
+
+document.addEventListener('click', e => {
+  if (e.target.classList.contains("box")) {
+    currItems.push(e.target.classList[1]);
+    currItems = [...new Set(currItems)]; // filter duplicates
+    console.log(currItems);
+  }
 });
