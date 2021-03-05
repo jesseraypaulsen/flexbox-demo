@@ -77,10 +77,7 @@
       <div id="item-props">
 
         <h2>Item Properties</h2>
-
-        <label for="order">order</label>
-        <input name="order" id="order" type="text" placeholder="default is 0" data-props="item">
-
+        
         <label for="align-self">align-self</label>
         <select name="align-self" id="align-self" data-props="item">
           <option value="auto">auto (default)</option>
@@ -90,7 +87,10 @@
           <option value="baseline">baseline</option>
           <option value="stretch">stretch</option>
         </select>
-        
+
+        <label for="order">order</label>
+        <input name="order" id="order" type="text" placeholder="default is 0" data-props="item">
+
         <label for="flex-grow">flex-grow</label> 
         <input type="range" name="flex-grow" id="flex-grow" data-props="item" min="0" max="10" value="0">
         
@@ -98,8 +98,29 @@
         <input type="range" name="flex-shrink" id="flex-shrink" data-props="item" min="0" max="10" value="1">
         
         <label for="flex-basis">flex-basis</label>
-        <input type="text" name="flex-basis" id="flex-basis" data-props="item" placeholder="auto (default)">
+        <input type="text" name="flex-basis" id="flex-basis" data-props="item" placeholder="px or % (auto is default)">
 
+      </div>
+
+      <div id="mid-panel">
+
+        <div style="display:flex; flex-direction:column;">
+          <label for="numdiv">How many divs?</label>
+          <select id="numdiv">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3" selected>3</option>
+            <option value="4">4</option>
+            <option value="5">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+        </div>
+
+        <div id="apply-to-divs" style="display:flex; flex-wrap: wrap;"></div>
+
+        <button>Apply Changes</button>
       </div>
 
     </div>

@@ -1,4 +1,9 @@
 const layout = document.querySelector('.container');
+let contControls = document.querySelectorAll('[data-props="container"]');
+let itemControls = document.querySelectorAll('[data-props="item"]');
+let divsToChange = document.querySelector('#apply-to-divs');
+
+let currItems = [];
 
 // https://flaviocopes.com/how-to-uppercase-first-letter-javascript/
 const capitalize = (s) => {
@@ -15,11 +20,6 @@ const parseAttrIntoProps = (s) => {
   return s;
 }
 
-let contControls = document.querySelectorAll('[data-props="container"]');
-let itemControls = document.querySelectorAll('[data-props="item"]');
-
-let currItems = [];
-
 // container controls must be handled differently than item controls
 contControls.forEach(ctrl => {
   let name = ctrl.name;
@@ -33,19 +33,46 @@ itemControls.forEach(ctrl => {
   let name = ctrl.name;
   let newName = parseAttrIntoProps(name);
   ctrl.addEventListener('change', e => {
-    currItems.forEach(item => {
-      item = '.' + item;
-      console.log(document.querySelector(item))
-      console.log(e.target.value);
-      document.querySelector(item).style[newName] = e.target.value;
-    });
+    // applies the change to the div that was clicked last
+    let item = currItems[currItems.length -1];
+    console.log(currItems);
+    console.log(item);
+    document.querySelector(item).style[newName] = e.target.value;
+
+    // applies the change to all selected divs
+    // currItems.forEach(item => {
+    //   console.log(document.querySelector(item))
+    //   console.log(e.target.value);
+    //   document.querySelector(item).style[newName] = e.target.value;
+    // });
   });
 })
 
 document.addEventListener('click', e => {
   if (e.target.classList.contains("box")) {
-    currItems.push(e.target.classList[1]);
+    let items = '.' + e.target.classList[1];
+    currItems.push(items);
     currItems = [...new Set(currItems)]; // filter duplicates
-    console.log(currItems);
+    //divsToChange.appendChild(spanItems(currItems)); // TODO: put each item in a span
+    
+    spanItems(currItems).forEach(item => {
+      divsToChange.appendChild(item);
+    });
   }
 });
+
+const spanItems = (items) => {
+  removeAllChildNodes(divsToChange);
+  return items.map(item => {
+    let span = document.createElement('span');
+    span.innerHTML = item;
+    return span;
+  })
+}
+
+//https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
+const removeAllChildNodes = (parent) => {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
+}

@@ -38,9 +38,23 @@
   border: 1px dotted black;
 } */
 
-#cont-props, #item-props {
+#cont-props, #item-props, #mid-panel {
  display: flex;
  flex-direction: column;
+ justify-content: space-around;
+}
+#cont-props {
+  order: 0;
+}
+
+#item-props {
+  order: 2;
+}
+
+#mid-panel {
+  order: 1;
+  border: 5px dotted goldenrod;
+  padding: 10px;
 }
 
 select {
@@ -52,7 +66,7 @@ select {
   font-size: 1.2rem;
   padding: 5px;
   border: none;
-  border-bottom: 1px solid red;
+  border-bottom: 4px solid goldenrod;
 }
 
 select:focus {
