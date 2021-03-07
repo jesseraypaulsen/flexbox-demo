@@ -2,6 +2,7 @@ const layout = document.querySelector('.container');
 let contControls = document.querySelectorAll('[data-props="container"]');
 let itemControls = document.querySelectorAll('[data-props="item"]');
 let divsToChange = document.querySelector('#apply-to-divs');
+let btn = document.querySelector('#apply-changes');
 
 let currItems = [];
 
@@ -28,16 +29,12 @@ contControls.forEach(ctrl => {
   });
 });
 
-itemControls.forEach(ctrl => {
-  let name = parseAttrIntoProp(ctrl.name);
-  ctrl.addEventListener('change', e => {
-    // applies the change to the div that was clicked last
-    // let item = currItems[currItems.length -1];
-    // document.querySelector(item).style[name] = e.target.value;
-
-    // applies the change to all selected divs
+btn.addEventListener('click', e => {
+  itemControls.forEach(ctrl => {
+    let name = parseAttrIntoProp(ctrl.name);
     currItems.forEach(item => {
-      document.querySelector(item).style[name] = e.target.value;
+      let el = document.querySelector(item);
+      el.style[name] = ctrl.value;
     });
   });
 });
@@ -70,6 +67,7 @@ const spanItems = items => {
     let span = document.createElement('span');
     let num = getLastChar(item);
     span.style.backgroundColor = getColor(item);
+    span.style.cursor = "pointer";
     span.style.padding = "3px";
     span.innerHTML = num;
     span.id = item;
@@ -82,7 +80,6 @@ const getLastChar = item => {
   return item.charAt(num);
 }
 
-
 //https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
 const removeAllChildNodes = parent => {
   while (parent.firstChild) {
@@ -91,7 +88,7 @@ const removeAllChildNodes = parent => {
 }
 
 // style properties return empty strings unless you first assign them from javascript
-//https://stackoverflow.com/q/10556185
+// https://stackoverflow.com/q/10556185
 const getColor = item => {
   let el = document.querySelector(item);
   return window.getComputedStyle(el).backgroundColor;

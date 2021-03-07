@@ -14,6 +14,24 @@
   font-size: 50px;
   box-sizing: border-box;
   width: 300px;
+  cursor: pointer;
+}
+
+.tooltip {
+  visibility: hidden;
+}
+
+.box .tooltip {
+  position: absolute;
+  z-index: 1;
+  font-size: 14px;
+  color: #fff;
+  top: 70%;
+}
+
+/* pseudo-class */
+.box:hover .tooltip {
+  visibility: visible;
 }
 
 .box-1 { background-color: #e51400; }
@@ -31,30 +49,30 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: space-around;
-  border: 1px solid black;
+  border: 3px dotted goldenrod;
+  padding: 10px;
 }
 
 /* #flex-props > * {
   border: 1px dotted black;
 } */
 
-#cont-props, #item-props, #mid-panel {
+#cont-props, #item-props, #div-controls {
  display: flex;
  flex-direction: column;
  justify-content: space-around;
+ border: 3px dotted goldenrod;
+ padding: 10px;
 }
-#cont-props {
+/* #cont-props {
   order: 0;
 }
 
 #item-props {
   order: 2;
-}
+} */
 
-#mid-panel {
-  order: 1;
-  border: 5px dotted goldenrod;
-  padding: 10px;
+#div-controls {
   width: 15%;
 }
 
