@@ -3,6 +3,7 @@ let contControls = document.querySelectorAll('[data-props="container"]');
 let itemControls = document.querySelectorAll('[data-props="item"]');
 let divsToChange = document.querySelector('#apply-to-divs');
 let btn = document.querySelector('#apply-changes');
+let numdiv = document.querySelector('#numdiv');
 
 let currItems = [];
 
@@ -20,6 +21,26 @@ const parseAttrIntoProp = (s) => {
   }
   return s;
 }
+
+numdiv.addEventListener('change', e => {
+  currItems = [];
+  removeAllChildNodes(divsToChange);
+  let num = e.target.value;
+  removeAllChildNodes(layout);
+  for (let i = 1; i <= num; i++) {
+    let s = "box box-" + i;
+    let div = document.createElement('div');
+    let content = document.createElement('span');
+    let tooltip = document.createElement('span');
+    content.innerHTML = '' + i;
+    tooltip.className = "tooltip";
+    tooltip.innerHTML = "click to select";
+    div.appendChild(content);
+    div.appendChild(tooltip);
+    div.className = s;
+    layout.appendChild(div);
+  }
+});
 
 // container controls must be handled differently than item controls
 contControls.forEach(ctrl => {
