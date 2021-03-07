@@ -22,11 +22,15 @@ const parseAttrIntoProp = (s) => {
   return s;
 }
 
-numdiv.addEventListener('change', e => {
+function changeNumberOfDivs(e) {
   currItems = [];
   removeAllChildNodes(divsToChange);
   let num = e.target.value;
   removeAllChildNodes(layout);
+  loadDivs(num);
+}
+
+function loadDivs(num) {
   for (let i = 1; i <= num; i++) {
     let s = "box box-" + i;
     let div = document.createElement('div');
@@ -40,7 +44,9 @@ numdiv.addEventListener('change', e => {
     div.className = s;
     layout.appendChild(div);
   }
-});
+}
+
+numdiv.addEventListener('change', changeNumberOfDivs);
 
 // container controls must be handled differently than item controls
 contControls.forEach(ctrl => {
