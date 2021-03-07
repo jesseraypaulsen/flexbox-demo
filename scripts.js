@@ -96,6 +96,7 @@ const spanItems = items => {
     span.style.backgroundColor = getColor(item);
     span.style.cursor = "pointer";
     span.style.padding = "3px";
+    span.style.color = "#000";
     span.innerHTML = num;
     span.id = item;
     return span;
